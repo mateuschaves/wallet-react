@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Signin from '~/pages/Signin';
+import Dashboard from '~/pages/Dashboard';
 
 export default function App() {
   return (
@@ -14,11 +14,7 @@ export default function App() {
       <Switch>
       <Route 
           path="/"
-          component={Signin}
-        />
-        <Route 
-          path="/signin"
-          component={Signin}
+          component={Dashboard}
         />
       </Switch>
     </Router>
