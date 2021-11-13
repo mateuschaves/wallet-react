@@ -1,13 +1,13 @@
-import {AxiosError, AxiosResponse} from 'axios';
-import {User} from '~/shared/types/entity';
+import { AxiosError } from 'axios';
+import { Transaction } from '~/shared/types/entity';
 
-export interface InitialSigninStateProps {
-    data: AxiosResponse<User> | undefined,
+export interface InitialFetchTransactionsStateProps {
+    transactions: Transaction[],
     loading: boolean,
     error: AxiosError | undefined,
 }
 
 
 export interface RootState {
-    signin: InitialSigninStateProps;
+    transactions: InitialFetchTransactionsStateProps;
 }

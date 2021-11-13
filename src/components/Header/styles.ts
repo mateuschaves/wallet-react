@@ -3,6 +3,7 @@ import { colors } from '~/theme';
 
 export const Container = styled.header`
     display: flex;
+    width: 100%;
     background-color: ${colors.primary};
     height: 250px;
     justify-content: center;
@@ -43,4 +44,6 @@ export const Cards = styled.div`
     display: grid;
     grid-template-columns: 250px 250px 250px;
     grid-column-gap: 26px;
+    justify-content: center;
+    align-items: center;
 `;

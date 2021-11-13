@@ -1,0 +1,52 @@
+{
+    "transactions": [
+        {
+            "id": 1,
+            "store": "Unicompra",
+            "amount": 2000.13,
+            "type": "Débito",
+            "operation_type": "income",
+            "date": "2021-11-13T14:02:59.119Z"
+        },
+        {
+            "id": 2,
+            "store": "Unicompra",
+            "amount": 2000.13,
+            "type": "Financiamento",
+            "operation_type": "outcome",
+            "date": "2021-11-13T14:02:59.119Z"
+        },
+        {
+            "id": 3,
+            "store": "Unicompra",
+            "amount": 2000.13,
+            "type": "Aluguel",
+            "operation_type": "outcome",
+            "date": "2021-11-13T14:02:59.119Z"
+        },
+        {
+            "id": 4,
+            "store": "Unicompra",
+            "amount": 2000.13,
+            "type": "Débito",
+            "operation_type": "income",
+            "date": "2021-11-13T14:02:59.119Z"
+        },
+        {
+            "id": 5,
+            "store": "Unicompra",
+            "amount": 3413.43,
+            "type": "Débito",
+            "operation_type": "income",
+            "date": "2021-11-13T14:02:59.119Z"
+        },
+        {
+            "id": 6,
+            "store": "Unicompra",
+            "amount": 9309489.09,
+            "type": "Débito",
+            "operation_type": "income",
+            "date": "2021-11-13T14:02:59.119Z"
+        }
+    ]
+}

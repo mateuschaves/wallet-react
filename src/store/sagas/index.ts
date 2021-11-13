@@ -1,9 +1,9 @@
-import {all} from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 
-import {watchSignin} from './Auth/Signin';
+import { watchFetchTransactions } from './Transaction/FetchTransactions';
 
 export default function* rootSaga() {
     yield all([
-        watchSignin(),
+        watchFetchTransactions(),
     ])
 }

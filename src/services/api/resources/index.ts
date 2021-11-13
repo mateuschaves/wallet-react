@@ -1,5 +1,5 @@
-import AuthService from './AuthService';
+import TransactionService from './TransactionService';
 
 export {
-    AuthService,
+    TransactionService,
 }

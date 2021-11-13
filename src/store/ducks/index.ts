@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
-import {signinReducer as signin} from './Auth/Signin';
+import {fetchTransactionsReducer as transactions} from './Transaction/FetchTransactions';
 
 const reducers = combineReducers({
-    signin,
+    transactions,
 });
 
 export default reducers;
