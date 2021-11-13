@@ -10,12 +10,14 @@ export const Container = styled.header`
 
 export const Content = styled.div`
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
     width: 750px;
 `;
 
 export const Options = styled.div`
     display: flex;
+    flex: 1;
 `;
 
 export const Option = styled.div`
@@ -26,6 +28,7 @@ export const Option = styled.div`
 export const Label = styled.label`
     margin: 30px 10px 0px 0px;
     color: ${colors.white};
+    cursor: pointer;
 `;
 
 export const OptionHighlighted = styled.div`
@@ -33,4 +36,11 @@ export const OptionHighlighted = styled.div`
     height: 5px;
     border-radius: 8px;
     background-color: ${colors.accent};
+`;
+
+export const Cards = styled.div`
+    height: 100px;
+    display: grid;
+    grid-template-columns: 250px 250px 250px;
+    grid-column-gap: 26px;
 `;
