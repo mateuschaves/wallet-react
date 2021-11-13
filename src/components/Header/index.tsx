@@ -3,7 +3,13 @@ import HeaderCard from '../HeaderCard';
 
 import { Container, Content, Options, Option, Label, OptionHighlighted, Cards } from './styles';
 
-export default function Header() {
+interface HeaderProps {
+    income: number;
+    outcome: number;
+    ballance: number;
+}
+
+export default function Header({income, outcome, ballance}: HeaderProps) {
     return (
         <Container>
             <Content>
@@ -18,9 +24,9 @@ export default function Header() {
                 </Options>
 
                 <Cards>
-                    <HeaderCard title="Entradas" amount={73874} type="income" />
-                    <HeaderCard title="Saídas" amount={700} type="outcome"/>
-                    <HeaderCard title="Saldo" amount={2000} type="total"/>
+                    <HeaderCard title="Entradas" amount={income} type="income" />
+                    <HeaderCard title="Saídas" amount={outcome} type="outcome"/>
+                    <HeaderCard title="Saldo" amount={ballance} type="total"/>
                 </Cards>
             </Content>
         </Container>
