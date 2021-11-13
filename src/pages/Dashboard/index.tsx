@@ -29,19 +29,19 @@ export default function Dashboard() {
 
 
     useEffect(() => {
-        const totalIncome = transactions.reduce((totalIncome, transaction) => {
+        const totalIncome = transactions?.reduce((totalIncome, transaction) => {
             if (transaction.operation_type === 'income') return totalIncome + transaction.amount;
             return totalIncome;
         }, 0);
 
-        const totalOutcome = transactions.reduce((totalOutcome, transaction) => {
+        const totalOutcome = transactions?.reduce((totalOutcome, transaction) => {
             if (transaction.operation_type === 'outcome') return totalOutcome + transaction.amount;
             return totalOutcome;
         }, 0);
 
         setIncome(totalIncome);
         setOutcome(totalOutcome);
-        setBallance(totalIncome - totalOutcome);
+        setBallance(totalIncome - totalOutcome || 0);
     }, [transactions])
 
 
@@ -68,7 +68,7 @@ export default function Dashboard() {
                         </tr>
                     </thead>
 
-                    {transactions.map(transaction => (
+                    {transactions?.map(transaction => (
                         <tbody key={transaction.id}>
                         <tr>
                             <td className="title">{transaction.store}</td>
