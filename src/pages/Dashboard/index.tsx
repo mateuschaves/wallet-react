@@ -7,14 +7,7 @@ import { Container, TableContainer, Content } from './styles';
 import { fetchTransactionsActions } from '~/store/ducks/Transaction/FetchTransactions';
 import { RootState } from '~/shared/store/app.state';
 import { InitialFetchTransactionsStateProps } from '~/shared/store/app.state';
-import { formatMoney } from '~/utils/number';
-import { OperationType } from '~/shared/models/transaction.model';
-import { formatDateStringBr } from '~/utils/date';
-
-interface RenderAmountProps {
-    amount: number;
-    operationType: OperationType
-}
+import TransactionItem from './components/Transaction';
 
 export default function Dashboard() {
 
@@ -46,11 +39,6 @@ export default function Dashboard() {
         setBallance(totalIncome - totalOutcome || 0);
     }, [transactions])
 
-
-    function renderAmount({amount, operationType}: RenderAmountProps) {
-        return `${operationType === 'income' ? '+' : '-'}  ${formatMoney(amount)}`;
-    }
-
     return (
         <Container>
             <Header 
@@ -71,16 +59,10 @@ export default function Dashboard() {
                     </thead>
 
                     {transactions?.map(transaction => (
-                        <tbody key={transaction.id}>
-                        <tr>
-                            <td className="title">{transaction.title}</td>
-                            <td className={transaction.operationType}>
-                            {renderAmount({amount: transaction.priceBrl, operationType: transaction.operationType })}
-                            </td>
-                            <td>{transaction.category?.title}</td>
-                            <td>{formatDateStringBr(new Date(transaction.releaseDate))}</td>
-                        </tr>
-                        </tbody>
+                        <TransactionItem 
+                            key={transaction.id}
+                            transaction={transaction}
+                        />
                     ))}
                     </table>
             </TableContainer>
