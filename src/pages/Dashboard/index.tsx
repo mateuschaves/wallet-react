@@ -8,10 +8,12 @@ import { fetchTransactionsActions } from '~/store/ducks/Transaction/FetchTransac
 import { RootState } from '~/shared/store/app.state';
 import { InitialFetchTransactionsStateProps } from '~/shared/store/app.state';
 import { formatMoney } from '~/utils/number';
+import { OperationType } from '~/shared/models/transaction.model';
+import { formatDateStringBr } from '~/utils/date';
 
 interface RenderAmountProps {
     amount: number;
-    operationType: 'income' | 'outcome';
+    operationType: OperationType
 }
 
 export default function Dashboard() {
@@ -30,12 +32,12 @@ export default function Dashboard() {
 
     useEffect(() => {
         const totalIncome = transactions?.reduce((totalIncome, transaction) => {
-            if (transaction.operation_type === 'income') return totalIncome + transaction.amount;
+            if (transaction.operationType === 'income') return totalIncome + transaction.priceBrl;
             return totalIncome;
         }, 0);
 
         const totalOutcome = transactions?.reduce((totalOutcome, transaction) => {
-            if (transaction.operation_type === 'outcome') return totalOutcome + transaction.amount;
+            if (transaction.operationType === 'outcome') return totalOutcome + transaction.priceBrl;
             return totalOutcome;
         }, 0);
 
@@ -61,9 +63,9 @@ export default function Dashboard() {
                     <table>
                     <thead>
                         <tr>
-                        <th>Loja</th>
+                        <th>Descrição</th>
                         <th>Valor</th>
-                        <th>Tipo</th>
+                        <th>Categoria</th>
                         <th>Data</th>
                         </tr>
                     </thead>
@@ -71,12 +73,12 @@ export default function Dashboard() {
                     {transactions?.map(transaction => (
                         <tbody key={transaction.id}>
                         <tr>
-                            <td className="title">{transaction.store}</td>
-                            <td className={transaction.operation_type}>
-                            {renderAmount({amount: transaction.amount, operationType: transaction.operation_type })}
+                            <td className="title">{transaction.title}</td>
+                            <td className={transaction.operationType}>
+                            {renderAmount({amount: transaction.priceBrl, operationType: transaction.operationType })}
                             </td>
-                            <td>{transaction.type}</td>
-                            <td>{new Date(transaction.date).toDateString()}</td>
+                            <td>{transaction.category?.title}</td>
+                            <td>{formatDateStringBr(new Date(transaction.releaseDate))}</td>
                         </tr>
                         </tbody>
                     ))}

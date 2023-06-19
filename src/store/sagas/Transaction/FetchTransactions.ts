@@ -7,9 +7,8 @@ import {
     fetchTransactionsTypes,
 } from '~/store/ducks/Transaction/FetchTransactions';
 
-import { Transaction } from '~/shared/types/entity';
-
 import { TransactionService } from '~/services/api/resources';
+import { Transaction } from '~/shared/models/transaction.model';
 
 export function* fetchTransactionsSaga() {
     try {

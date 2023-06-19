@@ -2,51 +2,63 @@
     "transactions": [
         {
             "id": 1,
-            "store": "Unicompra",
-            "amount": 2000.13,
-            "type": "Débito",
-            "operation_type": "income",
-            "date": "2021-11-13T14:02:59.119Z"
+            "title": "Salário - Orla",
+            "priceBrl": 20000.13,
+            "operationType": "income",
+            "releaseDate": "2021-11-13T14:02:59.119Z",
+            "categoryId": 1,
+            "category": {
+                "id": 1,
+                "title": "Salário"
+            }
         },
         {
             "id": 2,
-            "store": "Unicompra",
-            "amount": 2000.13,
-            "type": "Financiamento",
-            "operation_type": "outcome",
-            "date": "2021-11-13T14:02:59.119Z"
+            "title": "Unicompra",
+            "priceBrl": 2000.13,
+            "operationType": "outcome",
+            "releaseDate": "2021-11-13T14:02:59.119Z",
+            "categoryId": 2,
+            "category": {
+                "id": 2,
+                "title": "Mercado"
+            }
         },
         {
             "id": 3,
-            "store": "Unicompra",
-            "amount": 2000.13,
-            "type": "Aluguel",
-            "operation_type": "outcome",
-            "date": "2021-11-13T14:02:59.119Z"
-        },
-        {
-            "id": 4,
-            "store": "Unicompra",
-            "amount": 2000.13,
-            "type": "Débito",
-            "operation_type": "income",
-            "date": "2021-11-13T14:02:59.119Z"
+            "title": "iFood",
+            "priceBrl": 56.78,
+            "operationType": "outcome",
+            "releaseDate": "2021-11-13T14:02:59.119Z",
+            "categoryId": 3,
+            "category": {
+                "id": 3,
+                "title": "Alimentação"
+            }
         },
         {
             "id": 5,
-            "store": "Unicompra",
-            "amount": 3413.43,
-            "type": "Débito",
-            "operation_type": "income",
-            "date": "2021-11-13T14:02:59.119Z"
+            "title": "Aluguel",
+            "priceBrl": 3413.43,
+            "operationType": "outcome",
+            "releaseDate": "2021-11-13T14:02:59.119Z",
+            "categoryId": 4,
+            "category": {
+                "id": 4,
+                "title": "Moradia"
+            }
         },
         {
             "id": 6,
-            "store": "Unicompra",
-            "amount": 9309489.09,
-            "type": "Débito",
-            "operation_type": "income",
-            "date": "2021-11-13T14:02:59.119Z"
+            "title": "Academia",
+            "priceBrl": 120.09,
+            "operationType": "outcome",
+            "releaseDate": "2021-11-13T14:02:59.119Z",
+            "categoryId": 5,
+            "category": {
+                "id": 5,
+                "title": "Saúde"
+            }
         }
     ]
 }
