@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '~/components/Header';
 
+import { MdDirectionsTransitFilled, MdFastfood, MdHouse } from 'react-icons/md';
+
 import { Container, TableContainer, Content } from './styles';
 import { fetchTransactionsActions } from '~/store/ducks/Transaction/FetchTransactions';
 import { RootState } from '~/shared/store/app.state';
 import { InitialFetchTransactionsStateProps } from '~/shared/store/app.state';
 import TransactionItem from './components/Transaction';
+import ExpensesCategoryRanking from '~/components/ExpensesCategoryRanking';
 
 export default function Dashboard() {
 
@@ -45,6 +48,13 @@ export default function Dashboard() {
                 income={income}
                 outcome={outcome}
                 ballance={ballance}
+            />
+            <ExpensesCategoryRanking
+                categoryExpenses={[
+                    { category: 'Alimentação', amount: 1000, icon: <MdFastfood size={20}/> },
+                    { category: 'Transporte', amount: 200, icon: <MdDirectionsTransitFilled size={20}/> },
+                    { category: 'Casa', amount: 1000, icon: <MdHouse size={20}/> },
+                ]}
             />
             <Content>
                 <TableContainer>
