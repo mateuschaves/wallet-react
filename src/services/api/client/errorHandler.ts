@@ -3,13 +3,14 @@ import {
 } from 'axios';
 
 
-const errorHandler = (error: AxiosError, handleError: boolean) => {
+const errorHandler = (error: AxiosError | unknown, handleError: boolean) => {
     if (!handleError) {
         return Promise.reject(error);
     }
 
-    if (error.response) {
-        switch (error.response.status) {
+    const axiosError = (error as AxiosError).response;
+    if (axiosError) {
+        switch (axiosError.status) {
             case 400:
                 break;
             case 401:

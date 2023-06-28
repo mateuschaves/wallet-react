@@ -12,14 +12,14 @@ const client = async (options: AxiosRequestConfig, handlerError = true) => {
         return response;
     }
 
-    const onError = (error: AxiosError) => {
+    const onError = (error: AxiosError | unknown) => {
         return errorHandler(error, handlerError);
     }
 
     try {
         const response = await instance(options);
         return onSuccess(response);
-    } catch (error) {
+    } catch (error: unknown | AxiosError) {
         return onError(error);
     }
 }

@@ -1,7 +1,6 @@
  import { AxiosError, AxiosResponse } from 'axios';
+import { Transaction } from '~/shared/models/transaction.model';
  
- import { Transaction } from '~/shared/types/entity';
-
  import { InitialFetchTransactionsStateProps} from '~/shared/store/app.state';
 
  export const fetchTransactionsTypes = {

@@ -7,12 +7,7 @@ import { Container, TableContainer, Content } from './styles';
 import { fetchTransactionsActions } from '~/store/ducks/Transaction/FetchTransactions';
 import { RootState } from '~/shared/store/app.state';
 import { InitialFetchTransactionsStateProps } from '~/shared/store/app.state';
-import { formatMoney } from '~/utils/number';
-
-interface RenderAmountProps {
-    amount: number;
-    operationType: 'income' | 'outcome';
-}
+import TransactionItem from './components/Transaction';
 
 export default function Dashboard() {
 
@@ -30,12 +25,12 @@ export default function Dashboard() {
 
     useEffect(() => {
         const totalIncome = transactions?.reduce((totalIncome, transaction) => {
-            if (transaction.operation_type === 'income') return totalIncome + transaction.amount;
+            if (transaction.operationType === 'income') return totalIncome + transaction.priceBrl;
             return totalIncome;
         }, 0);
 
         const totalOutcome = transactions?.reduce((totalOutcome, transaction) => {
-            if (transaction.operation_type === 'outcome') return totalOutcome + transaction.amount;
+            if (transaction.operationType === 'outcome') return totalOutcome + transaction.priceBrl;
             return totalOutcome;
         }, 0);
 
@@ -43,11 +38,6 @@ export default function Dashboard() {
         setOutcome(totalOutcome);
         setBallance(totalIncome - totalOutcome || 0);
     }, [transactions])
-
-
-    function renderAmount({amount, operationType}: RenderAmountProps) {
-        return `${operationType === 'income' ? '+' : '-'}  ${formatMoney(amount)}`;
-    }
 
     return (
         <Container>
@@ -61,24 +51,18 @@ export default function Dashboard() {
                     <table>
                     <thead>
                         <tr>
-                        <th>Loja</th>
+                        <th>Descrição</th>
                         <th>Valor</th>
-                        <th>Tipo</th>
+                        <th>Categoria</th>
                         <th>Data</th>
                         </tr>
                     </thead>
 
                     {transactions?.map(transaction => (
-                        <tbody key={transaction.id}>
-                        <tr>
-                            <td className="title">{transaction.store}</td>
-                            <td className={transaction.operation_type}>
-                            {renderAmount({amount: transaction.amount, operationType: transaction.operation_type })}
-                            </td>
-                            <td>{transaction.type}</td>
-                            <td>{new Date(transaction.date).toDateString()}</td>
-                        </tr>
-                        </tbody>
+                        <TransactionItem 
+                            key={transaction.id}
+                            transaction={transaction}
+                        />
                     ))}
                     </table>
             </TableContainer>
