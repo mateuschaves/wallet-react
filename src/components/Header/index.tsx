@@ -3,6 +3,7 @@ import { useHistory, useLocation } from 'react-router';
 import HeaderCard from '../HeaderCard';
 
 import { Container, Content, Options, Option, Label, OptionHighlighted, Cards } from './styles';
+import ExpensesCategoryRanking from '../ExpensesCategoryRanking';
 
 interface HeaderProps {
     income?: number;
@@ -13,7 +14,7 @@ interface HeaderProps {
 
 type MenuSelected = 'dashboard' | 'import';
 
-export default function Header({income = 0, outcome = 0, ballance = 0, renderCards = true}: HeaderProps) {
+export default function Header({ income = 0, outcome = 0, ballance = 0, renderCards = true }: HeaderProps) {
 
     const history = useHistory();
     const location = useLocation();
@@ -57,8 +58,8 @@ export default function Header({income = 0, outcome = 0, ballance = 0, renderCar
                     renderCards && (
                         <Cards>
                             <HeaderCard title="Entradas" amount={income} type="income" />
-                            <HeaderCard title="Saídas" amount={outcome} type="outcome"/>
-                            <HeaderCard title="Saldo" amount={ballance} type="total"/>
+                            <HeaderCard title="Saídas" amount={outcome} type="outcome" />
+                            <HeaderCard title="Saldo" amount={ballance} type="total" />
                         </Cards>
                     )
                 }
